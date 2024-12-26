@@ -1,4 +1,4 @@
-//@ts-check
+import React from 'react';
 import { useState } from 'react';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
@@ -7,10 +7,12 @@ const HomePage = () => {
 
     const [signedUp, setSignedUp] = useState(false);
 
-    const current_user = localStorage.getItem("current_user");
+    const current_user: string | null = localStorage.getItem("current_user");
 
     if (current_user){
-        return( <> Welcome to Takstrek {current_user} </>)
+        return( 
+        <> 
+        Welcome to Takstrek {current_user} </>)
     }
 
     if (!signedUp) {
@@ -23,6 +25,7 @@ const HomePage = () => {
             </>
         )
     }
+
     else{
         return(
             <>
