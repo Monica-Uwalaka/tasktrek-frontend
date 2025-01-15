@@ -1,42 +1,33 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 
 const HomePage = () => {
 
-    const [signedUp, setSignedUp] = useState(false);
-
     const current_user: string | null = localStorage.getItem("current_user");
 
     if (current_user){
         return( 
+        //TODO: display dashboard
         <> 
-        Welcome to Takstrek {current_user} </>)
-    }
-
-    if (!signedUp) {
-        return(
-            <>
-                <SignUpForm/>
-                <div>
-                    <h5> Already have an account? <button onClick={() => setSignedUp(true)}> Sign In</button></h5>
-                </div>
-            </>
+            Welcome to Takstrek {current_user} 
+        </>
+        
         )
     }
 
     else{
         return(
             <>
-                <SignInForm/>
-                <div>
-                    <h5> Don't have an account? <button onClick={() => setSignedUp(false)}> Sign Up</button></h5>
-                </div>
+                <Link to= "/signup"> Sign up </Link>
+                <Link to= "/signin"> Sign in </Link>
             </>
+            
         )
-        
-    }   
+    }
+  
 }
 
 export { HomePage}

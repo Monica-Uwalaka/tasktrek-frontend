@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import axios from "axios";
 import React from 'react';
+import { Link, useNavigate } from 'react-router';
 
 const SignInForm = () => {
     const[form, setForm] = useState({
         username: "",
         password: ""
     })
+    let navigate =  useNavigate();
 
     const handleSignIn = async () => {
         const {data} = await axios.post("http://127.0.0.1:8000/auth/token", 
@@ -19,12 +21,12 @@ const SignInForm = () => {
         localStorage.setItem("current_user", data.username) 
         localStorage.setItem("access-token", data.access_token) 
         console.log(typeof(data), data.username)
-        window.location.reload();
+        navigate("/")
     }
 
     return (
     <div>
-        <h3>Log in </h3>
+        <h3>Sign in </h3>
         <form id="sign-in-form" >
             <label>
                 Username:
@@ -36,7 +38,8 @@ const SignInForm = () => {
             </label>
 
             <button type="button" onClick={handleSignIn}> Submit </button>
-    </form>
+        </form>
+        <Link to= "/signup"> Sign up </Link>
     </div>
     );
 }

@@ -2,9 +2,12 @@
 import { useState } from 'react';
 import axios from "axios";
 import React from 'react';
+import { Link, useNavigate } from 'react-router';
+
 
 
 const SignUpForm = () => {
+    let navigate = useNavigate();
     const [form, setForm] = useState({
         firstname: "",
         lastname: "",
@@ -14,17 +17,19 @@ const SignUpForm = () => {
     })
 
     const handleSignUp = async () => {
-        const {data} = await axios.post("http://127.0.0.1:8000/auth/register", 
+       await axios.post("http://127.0.0.1:8000/auth/register", 
             form, {
             headers: {
                 'Content-Type': 'application/json'
             }   
-        })  
+        }).then((res)=>{
+            navigate("/")
+        })
     }
 
     return (
     <div>
-        <h3>Tasktreck</h3>
+        <h3>Tasktrek</h3>
         <h4> Sign up to stay on top of your goals</h4>
         <form id="sign-up-form" >
             <label>
@@ -54,6 +59,7 @@ const SignUpForm = () => {
 
             <button type="button" onClick={handleSignUp}> Submit </button>
         </form>
+        <Link to= "/signin"> Sign in </Link>
     </div>
     );
 }
