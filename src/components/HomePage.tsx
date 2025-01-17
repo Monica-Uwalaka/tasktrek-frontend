@@ -1,10 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 
 const HomePage = () => {
+    let navigate =  useNavigate();
+
+    const handlelogout = () => {
+        localStorage.setItem("current_user", "") 
+        localStorage.setItem("access-token", "")
+        navigate("/")
+    }
 
     const current_user: string | null = localStorage.getItem("current_user");
 
@@ -12,7 +19,8 @@ const HomePage = () => {
         return( 
         //TODO: display dashboard
         <> 
-            Welcome to Takstrek {current_user} 
+            <h5> Welcome to Takstrek {current_user}  </h5>
+            <button type="button" onClick={handlelogout}> Logout </button>
         </>
         
         )
