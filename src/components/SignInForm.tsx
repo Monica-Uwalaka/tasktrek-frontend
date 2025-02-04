@@ -3,7 +3,6 @@ import axios from "axios";
 import React from 'react';
 import { useNavigate } from 'react-router';
 import {Box, Stack, TextField, Button, Link, } from '@mui/material'
-import { styled } from '@mui/material/styles';
 
 
 const SignInForm = () => {
@@ -32,8 +31,8 @@ const SignInForm = () => {
         <Box component="form" sx={{ width: 500, padding: "20px", margin: "20px", border:"1px solid black", borderRadius:"20px "}}>
             <Stack spacing={2} sx={{}}>
                 <h4> Sign Into Your Tasktrek Account </h4>
-                <TextField id="username" label="userame" variant="outlined" />
-                <TextField id="password" label="password" variant="outlined" />
+                <TextField id="username" label="Username" variant="outlined" onChange={(e) => setForm({...form , username: e.target.value})}/>
+                <TextField id="password" label="Password" variant="outlined" onChange={(e) => setForm({...form, password: e.target.value})}/>
                 <Button variant="contained" onClick={handleSignIn}> Submit </Button>
                 <h5>Don't have an account? <Link href="/signup"> Sign up </Link></h5>
             </Stack> 
