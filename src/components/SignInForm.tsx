@@ -26,7 +26,8 @@ const SignInForm = () => {
         setForm({...form, password: e.target.value})
     }
 
-    const handleSignIn = async () => {
+    const handleSignIn = async (e) => {
+        e.preventDefault(); 
         const {data} = await axios.post("http://127.0.0.1:8000/auth/token", 
             form, {
             headers: {
@@ -47,7 +48,7 @@ const SignInForm = () => {
                 <h4> Sign Into Your Tasktrek Account </h4>
                 <TextField id="username" label="Username" variant="outlined" onChange={handleUsernameChange}/>
                 <TextField id="password"  type='password' label="Password" variant="outlined" onChange={handlePasswordChange}/>
-                <Button variant="contained" disabled={!formFilled} onClick={handleSignIn}> Submit </Button>
+                <Button type="submit" variant="contained" disabled={!formFilled} onClick={handleSignIn}> Sign in </Button>
                 <h5>Don't have an account? <Link href="/signup"> Sign up </Link></h5>
             </Stack> 
         </Box>

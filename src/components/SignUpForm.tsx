@@ -28,15 +28,16 @@ const SignUpForm = () => {
     },[form]
     )
 
-    const handleSignUp = async () => {
-       await axios.post("http://127.0.0.1:8000/auth/register", 
-            form, {
-            headers: {
-                'Content-Type': 'application/json'
-            }   
-        }).then((res)=>{
-            navigate("/")
-        })
+    const handleSignUp = async (e) => {
+        e.preventDefault(); 
+        await axios.post("http://127.0.0.1:8000/auth/register", 
+                form, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }   
+            }).then((res)=>{
+                navigate("/")
+            })
     }
 
     return (
@@ -47,8 +48,8 @@ const SignUpForm = () => {
                 <TextField id="lastname" label="Last name" variant="outlined" onChange={(e) => setForm({...form , lastname: e.target.value})}/>
                 <TextField id="email" label="Email" variant="outlined" onChange={(e) => setForm({...form , email: e.target.value})}/>
                 <TextField id="username" label="Username" variant="outlined" onChange={(e) => setForm({...form , username: e.target.value})}/>
-                <TextField id="password" label="Password" variant="outlined" onChange={(e) => setForm({...form, password: e.target.value})}/>
-                <Button variant="contained" disabled={!formFilled} onClick={handleSignUp}> Submit </Button>
+                <TextField id="password" type="password" label="Password" variant="outlined" onChange={(e) => setForm({...form, password: e.target.value})}/>
+                <Button type="submit" variant="contained" disabled={!formFilled} onClick={handleSignUp}> sign up </Button>
                 <h5>Already have an account? <Link href="/signin"> Sign in </Link></h5>
             </Stack> 
         </Box>
