@@ -1,5 +1,5 @@
 //@ts-check
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from "axios";
 import React from 'react';
 import { useNavigate } from 'react-router';
@@ -9,10 +9,12 @@ import {Box, Stack, TextField, Button, Link, } from '@mui/material'
 
 
 const SignUpForm = () => {
+    let navigate = useNavigate();
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    let navigate = useNavigate();
+    const [formFilled, setFormFilled] = useState(false);
     const [form, setForm] = useState({
         firstname: "",
         lastname: "",
@@ -21,15 +23,21 @@ const SignUpForm = () => {
         password: "", 
     })
 
-    const handleSignUp = async () => {
-       await axios.post("http://127.0.0.1:8000/auth/register", 
-            form, {
-            headers: {
-                'Content-Type': 'application/json'
-            }   
-        }).then((res)=>{
-            navigate("/")
-        })
+    useEffect(() => {
+        setFormFilled(form.firstname.length > 0 && form.lastname.length > 0 && form.username.length > 0 && form.email.length > 0  && form.password.length > 0)
+    },[form]
+    )
+
+    const handleSignUp = async (e) => {
+        e.preventDefault(); 
+        await axios.post("http://127.0.0.1:8000/auth/register", 
+                form, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }   
+            }).then((res)=>{
+                navigate("/")
+            })
     }
 
     return (
@@ -40,8 +48,8 @@ const SignUpForm = () => {
                 <TextField id="lastname" label="Last name" variant="outlined" onChange={(e) => setForm({...form , lastname: e.target.value})}/>
                 <TextField id="email" label="Email" variant="outlined" onChange={(e) => setForm({...form , email: e.target.value})}/>
                 <TextField id="username" label="Username" variant="outlined" onChange={(e) => setForm({...form , username: e.target.value})}/>
-                <TextField id="password" label="Password" variant="outlined" onChange={(e) => setForm({...form, password: e.target.value})}/>
-                <Button variant="contained" onClick={handleSignUp}> Submit </Button>
+                <TextField id="password" type="password" label="Password" variant="outlined" onChange={(e) => setForm({...form, password: e.target.value})}/>
+                <Button type="submit" variant="contained" disabled={!formFilled} onClick={handleSignUp}> sign up </Button>
                 <h5>Already have an account? <Link href="/signin"> Sign in </Link></h5>
             </Stack> 
         </Box>
