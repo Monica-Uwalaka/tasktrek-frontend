@@ -1,0 +1,12 @@
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.center-modal{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+}
