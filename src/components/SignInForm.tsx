@@ -37,24 +37,6 @@ const SignInForm = () => {
                 <h5>Don't have an account? <Link href="/signup"> Sign up </Link></h5>
             </Stack> 
         </Box>
-        
-        
-    // <div>
-    //     <h3>Sign in </h3>
-    //     <form id="sign-in-form" >
-    //         <label>
-    //             Username:
-    //             <input autoComplete="off" id= "sign-in-username" name="username" value={form.username} onChange={(e) => setForm({...form , username: e.target.value})}/>
-    //         </label>
-    //         <label>
-    //             Password:
-    //             <input autoComplete="off" id= "sign-in-password" name="password" type="password" value={form.password} onChange={(e) => setForm({...form, password: e.target.value})} />
-    //         </label>
-
-    //         <button type="button" onClick={handleSignIn}> Submit </button>
-    //     </form>
-    //     <Link to= "/signup"> Sign up </Link>
-    // </div>
      );
 }
 
