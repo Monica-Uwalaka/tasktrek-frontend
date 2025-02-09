@@ -10,10 +10,6 @@ import {Box, Stack, TextField, Button, Link, } from '@mui/material'
 
 const SignUpForm = () => {
     let navigate = useNavigate();
-
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
     const [formFilled, setFormFilled] = useState(false);
     const [form, setForm] = useState({
         firstname: "",
