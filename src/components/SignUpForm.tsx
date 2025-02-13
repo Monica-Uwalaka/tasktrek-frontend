@@ -44,9 +44,9 @@ const SignUpForm = () => {
     }, [signUpError])
 
     return (
-        <Box component="form" sx={{ width: 500, padding: "20px", margin: "20px", border:"1px solid black", borderRadius:"20px "}}>
-            <Stack spacing={2} sx={{}}>
-                <h4> Sign Into Your Tasktrek Account </h4>
+        <Box className="vertical-center-screen" component="form" >
+            <Stack spacing={2} sx={{ width: "500px", padding: "20px", margin: "20px", border:"0px solid black", borderRadius:"20px "}}>
+                <h3> Sign Into Your Tasktrek Account </h3>
                 <TextField id="firstname" label="First name" variant="outlined" onChange={(e) => setForm({...form , firstname: e.target.value})}/>
                 <TextField id="lastname" label="Last name" variant="outlined" onChange={(e) => setForm({...form , lastname: e.target.value})}/>
                 <TextField id="email" label="Email" variant="outlined" onChange={(e) => setForm({...form , email: e.target.value})}/>

@@ -27,7 +27,7 @@ const HomePage = () => {
 
     else{
         return(
-            <Box>
+            <Box className="vertical-center-screen">
                 <h1>TaskTrek</h1>
                 <h3> Stay accountable to your goals !</h3> 
                 <Button variant= "outlined" > <Link href="/signup"> Create account </Link> </Button>
