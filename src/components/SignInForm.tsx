@@ -49,7 +49,6 @@ const SignInForm = () => {
         .catch((error)=>{
             if (error.response){
                 setSignInError(error.response.data.detail)
-                console.log(error.response.data)
             } 
         })}
 
