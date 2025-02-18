@@ -45,8 +45,8 @@ const SignUpForm = () => {
 
     return (
         <Box className="vertical-center-screen" component="form" >
-            <Stack spacing={2} sx={{ width: "500px", padding: "20px", margin: "20px", border:"0px solid black", borderRadius:"20px "}}>
-                <h3> Sign Into Your Tasktrek Account </h3>
+            <Stack spacing={2} sx={{ width: "300px", padding: "20px", margin: "20px", border:"0px solid black", borderRadius:"20px "}}>
+                <h3> Sign Up for a Tasktrek Account </h3>
                 <TextField id="firstname" label="First name" variant="outlined" onChange={(e) => setForm({...form , firstname: e.target.value})}/>
                 <TextField id="lastname" label="Last name" variant="outlined" onChange={(e) => setForm({...form , lastname: e.target.value})}/>
                 <TextField id="email" label="Email" variant="outlined" onChange={(e) => setForm({...form , email: e.target.value})}/>

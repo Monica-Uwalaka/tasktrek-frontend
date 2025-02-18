@@ -54,7 +54,7 @@ const SignInForm = () => {
 
     return (
         <Box className="vertical-center-screen" component="form">
-            <Stack spacing={2} sx={{ width: "500px", padding: "20px", margin: "20px", border:"0px solid black", borderRadius:"20px "}}>
+            <Stack spacing={2} sx={{ width: "300px", padding: "20px", margin: "20px", border:"0px solid black", borderRadius:"20px "}}>
                 <h3> Sign Into Your Tasktrek Account </h3>
                 <TextField id="username" label="Username" variant="outlined" onChange={handleUsernameChange}/>
                 <TextField id="password"  type='password' label="Password" variant="outlined" onChange={handlePasswordChange}/>

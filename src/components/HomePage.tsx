@@ -1,27 +1,18 @@
 import React, {  } from 'react';
-import { useNavigate } from 'react-router';
 import { Box, Button, Link} from '@mui/material';
 import '../styling/general.css';
-
+import Dashboard from './Dashboard';
 
 
 const HomePage = () => {
-    let navigate =  useNavigate();
 
-    const handlelogout = () => {
-        localStorage.setItem("current_user", "") 
-        localStorage.setItem("access-token", "")
-        navigate("/")
-    }
+    
 
     const current_user: string | null = localStorage.getItem("current_user");
 
     if (current_user){
         return( 
-        <> 
-            <h5> Welcome to Takstrek {current_user}  </h5>
-            <button type="button" onClick={handlelogout}> Logout </button>
-        </>
+        <Dashboard signedInUser ={current_user}/>
         )
     }
 
