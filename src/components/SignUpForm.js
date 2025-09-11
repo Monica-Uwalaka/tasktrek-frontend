@@ -11,6 +11,7 @@ import {Box, Stack, TextField, Button, Link, } from '@mui/material'
 const SignUpForm = () => {
     let navigate = useNavigate();
     const [formFilled, setFormFilled] = useState(false);
+    const [signUpError, setSignUpError] = useState("")
     const [form, setForm] = useState({
         firstname: "",
         lastname: "",
@@ -31,21 +32,28 @@ const SignUpForm = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 }   
-            }).then((res)=>{
+            }).then((response)=>{
                 navigate("/")
+            }).catch((error) => {
+                setSignUpError(error.response.data.detail)
             })
     }
 
+    useEffect(()=>{
+
+    }, [signUpError])
+
     return (
-        <Box component="form" sx={{ width: 500, padding: "20px", margin: "20px", border:"1px solid black", borderRadius:"20px "}}>
-            <Stack spacing={2} sx={{}}>
-                <h4> Sign Into Your Tasktrek Account </h4>
+        <Box className="vertical-center-screen" component="form" >
+            <Stack spacing={2} sx={{ width: "300px", padding: "20px", margin: "20px", border:"0px solid black", borderRadius:"20px "}}>
+                <h3> Sign Up for a Tasktrek Account </h3>
                 <TextField id="firstname" label="First name" variant="outlined" onChange={(e) => setForm({...form , firstname: e.target.value})}/>
                 <TextField id="lastname" label="Last name" variant="outlined" onChange={(e) => setForm({...form , lastname: e.target.value})}/>
                 <TextField id="email" label="Email" variant="outlined" onChange={(e) => setForm({...form , email: e.target.value})}/>
                 <TextField id="username" label="Username" variant="outlined" onChange={(e) => setForm({...form , username: e.target.value})}/>
                 <TextField id="password" type="password" label="Password" variant="outlined" onChange={(e) => setForm({...form, password: e.target.value})}/>
                 <Button type="submit" variant="contained" disabled={!formFilled} onClick={handleSignUp}> sign up </Button>
+                {signUpError ? (<h5 className='error-message'>{signUpError}</h5>) : <></>} 
                 <h5>Already have an account? <Link href="/signin"> Sign in </Link></h5>
             </Stack> 
         </Box>

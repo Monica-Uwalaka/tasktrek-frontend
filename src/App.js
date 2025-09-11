@@ -8,19 +8,15 @@ import { SignUpForm } from './components/SignUpForm';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signin" element={<SignInForm />} />
-          <Route path="/signup" element={<SignUpForm />} />
-          
-
-        </Routes>
-     
-      </BrowserRouter>
-      
-    </div>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signin" element={<SignInForm />} />
+            <Route path="/signup" element={<SignUpForm />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
   );
 }
 
