@@ -5,17 +5,13 @@ import Dashboard from './Dashboard';
 
 
 const HomePage = () => {
-
-    
-
-    const current_user: string | null = localStorage.getItem("current_user");
+    const current_user = localStorage.getItem("current_user");
 
     if (current_user){
         return( 
         <Dashboard signedInUser ={current_user}/>
         )
     }
-
     else{
         return(
             <Box className="vertical-center-screen">
@@ -27,9 +23,8 @@ const HomePage = () => {
                     <Button variant= "outlined"> < Link href="/signin"> Sign in </Link> </Button>
                 </Box>
             </Box>     
-  );
+        );
     }
-  
 }
 
 export { HomePage}
