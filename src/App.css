@@ -50,3 +50,37 @@
   justify-content: center;
 }
 
+#sidebar{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0px 0px 0px 50px;
+  border-right: 0.3px solid black;
+  position: relative;
+ 
+  
+}
+
+
+#sideBarLinksContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: black;
+  height: 100%;
+  padding: 00px 0px 0px 0px;
+  justify-content: space-between;
+  align-items: center;
+  align-content:left;
+ 
+}
+
+#sideBarLinksContainer > .sideNavLink{
+  color: black;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+
+
+

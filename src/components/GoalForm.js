@@ -24,7 +24,7 @@ const GoalForm = () => {
     return (
     <Box component="form">
         <Stack spacing={2} sx={{ width: "300px", padding: "20px", margin: "20px", border:"0px solid black", borderRadius:"20px "}}>
-            <h3> Create a Habit</h3>
+            <h3> Define a Goal</h3>
             <TextField id="title" label="Title" variant="outlined" onChange={(e) => setForm({...form , title: e.target.value})}/>
             <TextField id="description" label="Description"  type='description' variant="outlined" onChange={(e) => setForm({...form , description: e.target.value})}/>
             <BasicDatePicker  onChange={(e) => setForm({...form , startDate: e.target.value})} />

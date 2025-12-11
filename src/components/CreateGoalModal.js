@@ -12,7 +12,7 @@ const CreateGoalModal = () => {
 
     return (
     <div className="modal">
-        <Button  variant="outlined" onClick={handleOpen}> Define a habit </Button>
+        <Button  variant="outlined" onClick={handleOpen}> Define a Goal </Button>
         <Modal
             open={open}
             onClose={handleClose}
