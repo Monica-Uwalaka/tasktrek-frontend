@@ -17,8 +17,6 @@ const GoalForm = () => {
         localStorage.setItem("startdate", form.startDate) ; 
         localStorage.setItem("enddate", form.endDate) ; 
         localStorage.setItem("description", form.description);
-    
-    
     }
 
     return (
