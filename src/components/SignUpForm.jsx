@@ -25,8 +25,8 @@ const SignUpForm = () => {
     },[form]
     )
 
-    const handleSignUp = async (e) => {
-        e.preventDefault(); 
+    const handleSignUp = async () => {
+        console.log("??????????????????")
         await axios.post("http://127.0.0.1:8000/auth/signup", 
                 form, {
                 headers: {
