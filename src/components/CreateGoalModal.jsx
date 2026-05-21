@@ -7,9 +7,6 @@ const CreateGoalModal = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    
-    
-
     return (
     <div className="modal">
         <Button  variant="outlined" onClick={handleOpen}> Define a Goal </Button>

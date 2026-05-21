@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 import { Box, Button, Link, ListItem } from '@mui/material';
 import { useNavigate } from 'react-router';
+import Add from '@mui/icons-material/Add'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
 import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
@@ -17,8 +18,11 @@ const SideNabar = () => {
         localStorage.setItem("access-token", "")
         navigate("/")
         window.location.reload()
+
+    const handleCreateGoal = () => {
+
     }
-    
+    }
     return(
         <Box id = "sidebar">
             <Box id="sideBarLinksContainer">
@@ -37,6 +41,7 @@ const SideNabar = () => {
                 <Button  className="sideNavLink" href="#" startIcon={<HomeIcon/>}> Dashboard</Button>
                 <Button  className="sideNavLink"  href="#" startIcon={<LightbulbCircleIcon/>}> Goals </Button>
                 <Button  className="sideNavLink"  href="#" startIcon={<ListAltIcon/>}> Tasks</Button>
+                <Button  className="sideNavLink"  href="createGoal" startIcon={<Add/>}>  Create Goal </Button>
                 
                 <Button className="sideNavLink" startIcon={<LogoutIcon/>} onClick={handlelogout} sx={{marginTop:"auto", marginBottom:"20px", border:"2px solid balck"}}  > Log out</Button>
      
